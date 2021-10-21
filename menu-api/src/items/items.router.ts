@@ -86,11 +86,13 @@ itemsRouter.put("/:id", async (req: Request, res: Response) => {
                   
                   res.status(200).json(updateItem);
             }
-
-
+            else {
+                  
             const newItem = await ItemService.create(itemUpdate);
-
             res.status(201).json(newItem);
+            }
+
+
       } catch (er : any) {
             res.status(500).send(er.message);
       }
